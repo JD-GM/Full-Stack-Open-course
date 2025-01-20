@@ -22,33 +22,25 @@ const App = () => {
   const [bad, setBad] = useState(0);
   const [all, setAll] = useState(0);
 
+  const countGood = () => {
+    setGood(good + 1);
+    setAll(all + 1);
+  };
+  const countNeutral = () => {
+    setNeutral(neutral + 1);
+    setAll(all + 1);
+  };
+  const countBad = () => {
+    setBad(bad + 1);
+    setAll(all + 1);
+  };
+
   return (
     <div>
       <h2>give feedback</h2>
-      <button
-        onClick={() => {
-          setGood(good + 1);
-          setAll(all + 1);
-        }}
-      >
-        good
-      </button>
-      <button
-        onClick={() => {
-          setNeutral(neutral + 1);
-          setAll(all + 1);
-        }}
-      >
-        neutral
-      </button>
-      <button
-        onClick={() => {
-          setBad(bad + 1);
-          setAll(all + 1);
-        }}
-      >
-        bad
-      </button>
+      <button onClick={countGood}>good</button>
+      <button onClick={countNeutral}>neutral</button>
+      <button onClick={countBad}>bad</button>
       <h2>statistics</h2>
       <Statistics good={good} neutral={neutral} bad={bad} all={all} />
     </div>
